@@ -37,8 +37,9 @@ checking in this npm restore + gulp task managed files.
 add so that Startup.cs | Configure() can use app.UseStaticFiles(); in lieu of app.Run(async (context) => { });
 
 \- all examples made use of a typescript compiler tsconfig.json file with "outDir": "wwwroot/app" entry to cause $(SolutionDir)app\*.ts output to be placed
-in $(SolutionDir)wwwroot\app folder.  Using the default system.js configuration it expects to load your components from /app folder path so to use a 
-different target you'd have to figure out how to modify the default configuration settings. 
+in $(SolutionDir)wwwroot\app folder.  Using the default system.js module loader configuration it expects to load your components source path from /app 
+folder path.  If you need to use something other than that convention start with https://github.com/systemjs/systemjs/blob/master/docs/config-api.md for
+details on how to modify the default configuration settings. 
 
 \- while the ide intellisense suggests that placing // and /* */ comments in your gulpfile.js, package.json, project.json, tsconfig.json is supported
 you'll find that it is not and generates build output window errors and results
