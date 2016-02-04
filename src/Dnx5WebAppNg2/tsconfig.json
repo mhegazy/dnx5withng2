@@ -9,7 +9,8 @@
     "experimentalDecorators": true,
     "module": "system",
     "moduleResolution": "node",
-    "outDir": "wwwroot/app"
+    "outFile": "wwwroot/scripts/appBundle.js",
+    "outDir": "wwwroot"
   },
   "exclude": [
     "node_modules",
