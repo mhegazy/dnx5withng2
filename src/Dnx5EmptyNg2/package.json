@@ -2,13 +2,6 @@
   "name": "ASP.NET",
   "version": "1.0.0",
   "private": true,
-  "scripts": {
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "lite": "lite-server",
-    "start": "concurrent \"npm run tsc:w\" \"npm run lite\" "
-  },
-  "license": "ISC",
   "dependencies": {
     "angular2": "2.0.0-beta.0",
     "systemjs": "0.19.9",
@@ -27,5 +20,12 @@
     "concurrently": "^1.0.0",
     "lite-server": "^2.0.1",
     "typescript": "^1.7.5"
+  },
+  "license": "ISC",
+  "scripts": {
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "lite": "lite-server",
+    "start": "concurrent \"npm run tsc:w\" \"npm run lite\" "
   }
 }
