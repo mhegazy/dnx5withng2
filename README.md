@@ -1,6 +1,6 @@
 # asp.net 5 with angular 2 support
 
-I found there to be a mix of angular 2 [ng2] references, some based on building solutions usnig no existing host environments and others with details
+I found there to be a mix of angular 2 [ng2] references, some based on building solutions using no existing host environments and others with details
 on how to make use of it in the context of current generation asp.net [ execution environment, aka dnx ] 5 web app host environment.  The solutions 
 contained in this repo are intended as a guide for what i found was necessary to make things work in asp.net 5 web app environment, with typescript 
 support, as that is the target environment i wanted to work from with my angular 2 exploration.

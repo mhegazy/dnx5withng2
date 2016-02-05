@@ -21,6 +21,10 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
+**/www*/app/*.js
+**/www*/app/*.js.map
+**/www*/scripts/*.js
+**/www*/scripts/*.js.map
 
 # Visual Studio 2015 cache/options directory
 .vs/
