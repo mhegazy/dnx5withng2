@@ -43,3 +43,19 @@ details on how to modify the default configuration settings.
 
 \- while the ide intellisense suggests that placing // and /* */ comments in your gulpfile.js, package.json, project.json, tsconfig.json is supported
 you'll find that it is not and generates build output window errors and results
+
+\- currently when you change tsconfig.json target: "es5" -> "es6" it will cause "error TS2300: Duplicate identifier" errors. The 
+issue is that ng2 ships a copy of es6-shims.d.ts, that defined pieces of the es6 language runtime, specifically Promises. When you
+use –t ES6, the compiler automatically includes a different version of the standard library, lib.es6.d.ts vs. lib.d.ts for --t es5, 
+that has a definition of Promise as well. So you get the duplicate definition errors. The angular team has a fix for this issue, 
+by removing the typings files shipped in the package. I do not know when that will land in their master branch, but I can check 
+and get back to you. Meanwhile to solve the issue, copy lib.d.ts and include it in your project, this will force the compiler to 
+include it all the time and do not include lib.es6.d.ts, e.g. 
+pushd $(ProjectDir)
+// pushd "%programfiles(x86)%\Microsoft SDKs\TypeScript\1.7" & dir /s /b lib*.d.ts -> lib.d.ts & lib.es6.d.ts
+// robocopy "%programfiles(x86)%\Microsoft SDKs\TypeScript\1.7" app\typings lib.d.ts
+// pushd node_modules\typescript\lib & dir /s /b lib*.d.ts -> lib.d.ts & lib.es6.d.ts
+robocopy node_modules\typescript\lib app\typings lib.d.ts -> causes "error TS2318: Cannot find global type"
+ren node_modules\typescript\lib\lib.es6.d.ts lib.es6.d.ts.bak -> causes "error TS2318: Cannot find global type"
+// pushd node_modules\angular2\typings\es6-shim & dir 
+// ren $(ProjectDir)node_modules\angular2\typings\es6-shim\es6-shim.d.ts es6-shim.d.ts.bak
